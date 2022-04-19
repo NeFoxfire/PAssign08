@@ -58,7 +58,6 @@ public class MileageCalculatorNoConversion extends Application {
         tfCapacity.setMaxWidth(txtWidth);
         tfResult.setMaxWidth(txtWidth);
         tfResult.setEditable(false);
-//        rbMPG.setSelected(true);
         
         // create a main grid pane to hold items
         mainPane.setPadding(new Insets(10.0));
