@@ -1,11 +1,12 @@
 /**
- * File: PAssign08.java
- * Package: programmingAssignment08
+ * File: FXProjects/programmingAssignment08/PAssign08.java
+ * Package: ch16
  * Created By: Christopher Williams
  * Modified By: Gordon Chicowlas
  * Created on: Apr 12, 2017
  * Last Modified: Apr 20, 2022
- * Description:  
+ * Description: MPG/LKM Calculator with functioning Combo Box.
+ *              Github Address: https://github.com/NeFoxfire/PAssign08
  */
 package programmingAssignment08;
 
