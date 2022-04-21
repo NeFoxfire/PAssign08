@@ -1,13 +1,13 @@
 /**
- * File: csci1302/ch16/MileageCalculator.java
- * Package: ch16
+ * File: PAssign08.java
+ * Package: programmingAssignment08
  * Created By: Christopher Williams
  * Modified By: Gordon Chicowlas
  * Created on: Apr 12, 2017
- * Last Modified: Apr 19, 2022
+ * Last Modified: Apr 20, 2022
  * Description:  
  */
-package ch16;
+package programmingAssignment08;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -19,7 +19,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class MileageCalculatorNoConversion extends Application {
+public class PAssign08 extends Application {
 	// default values/strings
     private double txtWidth = 125.0;
     private String defaultCalc = String.format("%.2f", 0.00);
@@ -107,12 +107,23 @@ public class MileageCalculatorNoConversion extends Application {
         	// update labels
         	lblCapacity.setText(altCapacity);
         	lblDistance.setText(altMileage);
-        	lblResult.setText(altResult);       	
+        	lblResult.setText(altResult);
+        	
+        	//convert values from miles/gallons to kilometers/liters
+        	tfDistance.setText(String.format("%.2f", (Double.parseDouble(tfDistance.getText())) * 1.609344));
+        	tfCapacity.setText(String.format("%.2f", (Double.parseDouble(tfCapacity.getText())) * 3.785412));
+        	calcMileage();
+        	
          } else {
         	// update labels
         	lblCapacity.setText(defaultCapacity);
         	lblDistance.setText(defaultMileage);
         	lblResult.setText(defaultResult);
+        	
+        	//convert values from kilometers/liters to miles/gallon
+        	tfDistance.setText(String.format("%.2f", (Double.parseDouble(tfDistance.getText())) * 0.621371));
+        	tfCapacity.setText(String.format("%.2f", (Double.parseDouble(tfCapacity.getText())) * 0.264172));
+        	calcMileage();
         }
     }
     
@@ -132,12 +143,12 @@ public class MileageCalculatorNoConversion extends Application {
 
         // check for type of calculation
         double result = 0.0;
-        if (cmb.getValue().equals(altCapacity)) {
+        if (lblResult.getText().equals(altResult)) {
         	// liters / 100KM
         	result = (distance != 0) ? capacity/(distance/100.0) : 0;
         } else {
         	// MPG
-        	result = (capacity != 0) ? distance/capacity : 0;       	
+        	result = (capacity != 0) ? distance/capacity : 0;  
         }
     
 	    // update calculation fields with currency formatting
